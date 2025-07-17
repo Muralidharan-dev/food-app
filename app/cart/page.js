@@ -1,13 +1,22 @@
+'use client'
+import { useState } from 'react';
 
-import React from 'react'
+export default function Page() {
+  const [shouldThrow, setShouldThrow] = useState(false);
 
-const page = () => {
-    throw new Error("page not found");
+  if (shouldThrow) {
+    throw new Error("Simulated error for cart");
+  }
+
   return (
     <div>
-        <p>Hello</p>
+      <p>Hello from Cart Page</p>
+      <button
+        onClick={() => setShouldThrow(true)}
+        className="bg-red-500 text-white px-4 py-2 mt-4"
+      >
+        Simulate Error
+      </button>
     </div>
-  )
+  );
 }
-
-export default page
